@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Insurance.Models.InsuranceRecord>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2 class="pt-3">Seznam pojištění</h2>
+
+<section class="container">
+    <div class="row pt-4 pb-2 justify-content-end">
+        
+            <a asp-action="Create" class="btn btn-primary">Nový</a>
+       
+    </div>
+</section>
+<hr />
+@foreach (var item in Model)
+{
+    <div>
+        <dl class="row">
+            <dt class="col-sm-12">
+                @Html.DisplayFor(modelItem => item.InsuranceRecordName)
+            </dt>
+            <dd class="col-sm-12">
+                @Html.DisplayFor(modelItem => item.Amount)
+            </dd>
+            <dt class="col-sm-12">
+                @Html.DisplayFor(modelItem => item.Subject)
+            </dt>
+            <dt class="col-sm-12">
+                @Html.DisplayFor(modelItem => item.InsuredSince)
+            </dt>
+            <dt class="col-sm-12">
+                @Html.DisplayFor(modelItem => item.InsuredUntil)
+            </dt>
+        </dl>
+    </div>
+    <div class="pb-5">
+
+        <a asp-action="Edit" asp-route-id="@item.InsuranceId" class="btn btn-primary">Editovat</a> |
+
+        <a asp-action="Delete" asp-route-id="@item.InsuranceId" class="btn btn-danger">Smazat</a>
+
+    </div>
+
+}

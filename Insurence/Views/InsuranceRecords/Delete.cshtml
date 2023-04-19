@@ -1,0 +1,50 @@
+﻿@model Insurance.Models.InsuranceRecord
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h3 class="pt-3">Opravdu chcete smazat toto pojištění?</h3>
+<div>
+
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.InsuranceRecordName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.InsuranceRecordName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Subject)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Subject)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.InsuredSince)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.InsuredSince)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.InsuredUntil)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.InsuredUntil)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete" class="pt-3">
+        <input type="hidden" asp-for="InsuranceId" />
+        <input type="submit" value="Smazat" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-secondary">Zpět na seznam</a>
+    </form>
+</div>
+

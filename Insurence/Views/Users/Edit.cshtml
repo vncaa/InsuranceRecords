@@ -1,0 +1,112 @@
+﻿@model Insurance.Models.User
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h3 class="pt-3">Osobní údaje</h3>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="UserId" />
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="FirstName" class="control-label"></label>
+                        <input asp-for="FirstName" class="form-control" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="LastName" class="control-label"></label>
+                        <input asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Phone" class="control-label"></label>
+                        <input asp-for="Phone" class="form-control" />
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label asp-for="City" class="control-label"></label>
+                        <input asp-for="City" class="form-control" />
+                        <span asp-validation-for="City" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="PostalCode" class="control-label"></label>
+                        <input asp-for="PostalCode" class="form-control" />
+                        <span asp-validation-for="PostalCode" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Country" class="control-label"></label>
+                        <input asp-for="Country" class="form-control" />
+                        <span asp-validation-for="Country" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <h3 class="pt-5">Pojištění</h3>
+            <hr />
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-12">
+
+                        <dl>
+                            <dt>
+                                @{
+                                    int count = 0;
+                                    List<InsuranceRecord> insuranceRecords = ViewBag.InsuranceRecords;
+                                    List<int> UserInsuranceRecordsIds = ViewBag.UserInsuranceRecords;
+
+                                    foreach (var insurance in insuranceRecords)
+                                    {
+                                        if (count++ % 3 == 0)
+                                        {
+                                        @:</dt><dt>
+                                        }
+                                        @:<dd>
+                                        <input type="checkbox"
+                                               name="selectedInsuranceRecords"
+                                               value="@insurance.InsuranceId"
+                                               @if (UserInsuranceRecordsIds.Contains(insurance.InsuranceId)) { @: checked="checked"
+                                               } />
+                                        @insurance.InsuranceRecordName
+                                    @:</dd>
+                                }
+                            @:</dl>
+                                }
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group pt-3">
+                        <input type="submit" value="Uložit" class="btn btn-primary" />
+                        <a asp-action="Index" class="btn btn-secondary">Zpět na seznam</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }

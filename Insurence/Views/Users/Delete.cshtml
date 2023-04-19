@@ -1,0 +1,93 @@
+﻿@model Insurance.Models.User
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h3 class="pt-3">Opravdu chcete smazat tohoto uživatele?</h3>
+<div>
+
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-sm-2">
+            Ulice a pop./ev. číslo
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Street)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.City)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PostalCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PostalCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+
+    </dl>
+
+    <h3 class="pt-3">Pojištění</h3>
+    <hr />
+    <dl class="row">
+        @foreach (var item in Model.UserInsuranceRecords)
+        {
+
+            <dt class="col-sm-12">
+                @Html.DisplayFor(modelItem => item.InsuranceRecord.InsuranceRecordName)
+            </dt>
+            <dd class="col-sm-12">
+                @Html.DisplayFor(modelItem => item.InsuranceRecord.Amount)
+            </dd>
+            <dd class="col-sm-12">
+                @Html.DisplayFor(modelItem => item.InsuranceRecord.Subject)
+            </dd>
+            <dd class="col-sm-12">
+                @Html.DisplayFor(modelItem => item.InsuranceRecord.InsuredSince)
+            </dd>
+            <dd class="col-sm-12">
+                @Html.DisplayFor(modelItem => item.InsuranceRecord.InsuredUntil)
+            </dd>
+        }
+
+    </dl>
+
+    <form asp-action="Delete" class="pt-3">
+        <input type="hidden" asp-for="UserId" />
+        <input type="submit" value="Smazat" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-secondary">Zpět na seznam</a>
+    </form>
+</div>

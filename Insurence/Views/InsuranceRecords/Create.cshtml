@@ -1,0 +1,49 @@
+﻿@model Insurance.Models.InsuranceRecord
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h3 class="pt-3">Vytvořte pojištění</h3>
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="InsuranceRecordName" class="control-label"></label>
+                <input asp-for="InsuranceRecordName" class="form-control" />
+                <span asp-validation-for="InsuranceRecordName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label"></label>
+                <input asp-for="Amount" class="form-control" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Subject" class="control-label"></label>
+                <input asp-for="Subject" class="form-control" />
+                <span asp-validation-for="Subject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InsuredSince" class="control-label"></label>
+                <input asp-for="InsuredSince" class="form-control" />
+                <span asp-validation-for="InsuredSince" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InsuredUntil" class="control-label"></label>
+                <input asp-for="InsuredUntil" class="form-control" />
+                <span asp-validation-for="InsuredUntil" class="text-danger"></span>
+            </div>
+            <div class="form-group pt-3">
+                <input type="submit" value="Vytvořit" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Zpět na seznam</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
