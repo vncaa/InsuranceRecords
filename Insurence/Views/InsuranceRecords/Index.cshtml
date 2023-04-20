@@ -12,7 +12,7 @@
         </div>
     </div>
 </section>
-<table class="table" id="insurance-table">
+<table class="table center-table">
         <thead>
             <tr>
                 <th>
@@ -20,12 +20,6 @@
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Subject)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.InsuredSince)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.InsuredUntil)
                 </th>
 
                 <th></th>
@@ -40,12 +34,6 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Subject)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.InsuredSince)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.InsuredUntil)
                     </td>
                     <td class="nav justify-content-end">
                         <a asp-action="Edit" asp-route-id="@item.InsuranceId" class="btn btn-style">Upravit</a>

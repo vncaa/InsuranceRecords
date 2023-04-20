@@ -14,6 +14,12 @@ html {
   }
 }
 
+@media only screen and (min-width: 992px) {
+    .center-table {
+        width: 40%;
+    }
+}
+
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
@@ -53,19 +59,15 @@ footer {
 .btn-style {
     background-color: var(--btnColor);
     color: white;
+    border-color: var(--btnColor);
 }
 
-@media only screen and (min-width: 992px) {
-    #user-table {
-        width: 40%;
-    }
-    #insurance-table {
-        width: 50%;
-    }
+.btn-style:hover {
+    background-color: var(--navBarColor);
+    color: white;
 }
 
-#insurance-table
-#user-table {
+.center-table {
     margin-left: auto;
     margin-right: auto;
 }
@@ -80,6 +82,14 @@ footer {
     background-color: var(--bgColor);
 }
 
+.btn-style-back:hover {
+    background-color: white;
+}
+
 .underscore {
     text-decoration: underline;
+}
+
+#border-nav {
+    border-bottom: solid 2px var(--btnColor);
 }

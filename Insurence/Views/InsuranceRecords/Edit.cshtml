@@ -40,6 +40,7 @@
             <div class="form-group pt-3">
                 <input type="submit" value="Uložit" class="btn btn-style" />
                 <a asp-action="Index" class="btn btn-style-back">Zpět</a>
+                <a asp-action="Delete" asp-route-id="@Model.InsuranceId" class="btn btn-danger">Smazat</a>
             </div>
         </form>
     </div>
