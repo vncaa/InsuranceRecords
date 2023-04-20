@@ -26,7 +26,7 @@ namespace Insurance.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Zadejte ulici a číslo popisné/orientační")]
-        [Display(Name = "Ulice a číslo popisné/orientační")]
+        [Display(Name = "Adresa")]
         public string Street { get; set; }
 
         [Required(ErrorMessage = "Zadejte město")]

@@ -15,7 +15,7 @@ namespace Insurance.Models
         public string InsuranceRecordName { get; set;}
 
         [Required(ErrorMessage = "Zadejte celé číslo výše pojištění")]
-        [Display(Name = "Částka výše pojištění")]
+        [Display(Name = "Pojistná částka")]
         public double Amount { get; set; }
 
         [Required(ErrorMessage = "Zadejte předmět pojištění")]

@@ -1,5 +1,7 @@
 :root {
-    --bgcolor: #99ebff;
+    --bgColor: #e8f4fc;
+    --navBarColor: #187bcd;
+    --btnColor: #0d4573;
 }
 
 html {
@@ -24,6 +26,7 @@ html {
 body {
     height: 100%;
     padding-bottom: 60px;
+    background-color: var(--bgColor);
 }
 
 footer {
@@ -32,8 +35,51 @@ footer {
     width: 100%;
     height: 60px;
     padding: 18px;
+    color: var(--navBarColor);
 }
 
 .btn-space {
-    margin-right: 60px;
+    margin-right: 40px;
+}
+
+.navbarcolor {
+    background-color: var(--navBarColor);
+}
+
+.jumbo {
+    background-color: var(--navBarColor);
+}
+
+.btn-style {
+    background-color: var(--btnColor);
+    color: white;
+}
+
+@media only screen and (min-width: 992px) {
+    #user-table {
+        width: 40%;
+    }
+    #insurance-table {
+        width: 50%;
+    }
+}
+
+#insurance-table
+#user-table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.check {
+    accent-color: var(--btnColor);
+}
+
+.btn-style-back {
+    border: 1px solid var(--btnColor);
+    background-color: var(--bgColor);
+}
+
+.underscore {
+    text-decoration: underline;
 }

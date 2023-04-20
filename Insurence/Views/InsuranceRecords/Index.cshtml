@@ -4,43 +4,53 @@
     ViewData["Title"] = "Index";
 }
 
-<h2 class="pt-3">Seznam pojištění</h2>
-
-<section class="container">
-    <div class="row pt-4 pb-2 justify-content-end">
-        
-            <a asp-action="Create" class="btn btn-primary">Nový</a>
-       
+<section class="container text-center">
+    <h2 class="pt-5">Seznam pojištění</h2>
+    <div class="row pt-4 pb-2">
+        <div class="justify-content-end">
+            <a asp-action="Create" class="btn btn-primary my-3 btn-style">Přidat nové pojištění</a>
+        </div>
     </div>
 </section>
-<hr />
-@foreach (var item in Model)
-{
-    <div>
-        <dl class="row">
-            <dt class="col-sm-12">
-                @Html.DisplayFor(modelItem => item.InsuranceRecordName)
-            </dt>
-            <dd class="col-sm-12">
-                @Html.DisplayFor(modelItem => item.Amount)
-            </dd>
-            <dt class="col-sm-12">
-                @Html.DisplayFor(modelItem => item.Subject)
-            </dt>
-            <dt class="col-sm-12">
-                @Html.DisplayFor(modelItem => item.InsuredSince)
-            </dt>
-            <dt class="col-sm-12">
-                @Html.DisplayFor(modelItem => item.InsuredUntil)
-            </dt>
-        </dl>
-    </div>
-    <div class="pb-5">
+<table class="table" id="insurance-table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.InsuranceRecordName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Subject)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InsuredSince)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InsuredUntil)
+                </th>
 
-        <a asp-action="Edit" asp-route-id="@item.InsuranceId" class="btn btn-primary">Editovat</a> |
-
-        <a asp-action="Delete" asp-route-id="@item.InsuranceId" class="btn btn-danger">Smazat</a>
-
-    </div>
-
-}
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InsuranceRecordName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Subject)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InsuredSince)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InsuredUntil)
+                    </td>
+                    <td class="nav justify-content-end">
+                        <a asp-action="Edit" asp-route-id="@item.InsuranceId" class="btn btn-style">Upravit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
